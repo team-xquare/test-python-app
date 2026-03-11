@@ -3,17 +3,20 @@ import os
 
 app = Flask(__name__)
 
+VERSION = "2.0.0"
+
 @app.route("/")
 def index():
     return jsonify({
         "message": "Hello from xquare test app!",
         "env": os.environ.get("APP_ENV", "development"),
-        "version": os.environ.get("APP_VERSION", "1.0.0"),
+        "version": os.environ.get("APP_VERSION", VERSION),
+        "new_feature": "added in v2",
     })
 
 @app.route("/health")
 def health():
-    return jsonify({"status": "ok"})
+    return jsonify({"status": "ok", "version": VERSION})
 
 @app.route("/echo/<text>")
 def echo(text):

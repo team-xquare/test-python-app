@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-VERSION = "3.0.0"
+VERSION = "4.0.0-realtest"
 
 @app.route("/")
 def index():
@@ -12,7 +12,7 @@ def index():
         "env": os.environ.get("APP_ENV", "development"),
         "version": os.environ.get("APP_VERSION", VERSION),
         "new_feature": "added in v2",
-        "v3_feature": "deploy --watch test",
+        "v3_feature": "deploy --watch test", "v4_feature": "non-admin user test",
     })
 
 @app.route("/health")
